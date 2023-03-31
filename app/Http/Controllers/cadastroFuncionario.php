@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\cadastroFuncionarioModel;
+use App\Models\Funcionario;
 
 class cadastroFuncionario extends Controller
 {
@@ -11,7 +11,7 @@ class cadastroFuncionario extends Controller
         return View('cadastroFuncionario');
     }
 
-    public function cadastroFuncionario(Request $request){
+    public function cadastrarFuncionario(Request $request){
         $dadosfuncionarios = $request->validate(
           [
             'emailfun'=> 'string|required',
@@ -21,7 +21,7 @@ class cadastroFuncionario extends Controller
             'cpffun'=> 'string|required'
           ]
         );
-        cadastroFuncionarioModel::create($dadosfuncionarios);
+        Funcionario::create($dadosfuncionarios);
         return Redirect::rout('/home');
     }
 }
