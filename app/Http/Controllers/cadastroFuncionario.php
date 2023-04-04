@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Redirect;
+
 use Illuminate\Http\Request;
 use App\Models\Funcionario;
 
@@ -22,6 +24,6 @@ class cadastroFuncionario extends Controller
           ]
         );
         Funcionario::create($dadosfuncionarios);
-        return Redirect::rout('/home');
+        return Redirect::route('cadastro-funcionario');
     }
 }
