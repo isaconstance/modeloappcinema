@@ -15,7 +15,7 @@
 
     <div class="mb-3 form-check">
         <label for="dataLancamentoInput" class="form-label">Data de Lançamento:</label>
-        <input type="date" name="dataLancamentofil" class="form-control" id="dataLancamentoInput" >
+        <input type="date" name="datalancamentofil" class="form-control" id="dataLancamentoInput" >
     </div>
 
      <div class="mb-3 form-check">
