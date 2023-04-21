@@ -33,8 +33,8 @@ class funcionarioController extends Controller
 
     public function MostrarGerenciadorFuncionario(Request $request){
       $dadosfuncionarios = Funcionario::all();
-      dd(dadosfuncionarios);
-      /*
+      //dd($dadosfuncionarios);
+      
       $dadosfuncionarios = Funcionario::query();
       $dadosfuncionarios->when($request->nomefun,function($query, $nomefuncionario){
         $query->where('nomefun', 'like', '%'.$nomefuncionario.'%');
@@ -42,7 +42,8 @@ class funcionarioController extends Controller
 
       $dadosfuncionarios = $dadosfuncionarios->get();
 
-      return view('gerenciadorFuncionario');*/
+      return view('gerenciadorFuncionario',['dadosfuncionario'=>$dadosfuncionario]);
+      
 
     }
 }
