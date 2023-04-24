@@ -24,12 +24,12 @@ class funcionarioController extends Controller
           ]
         );
         Funcionario::create($dadosfuncionarios);
-        return Redirect::route('/home');
+        return Redirect::route('home');
     }
 
-    public function buscarFuncionario(){
+    /*public function buscarFuncionario(){
       return view('gerenciadorFuncionario');
-    }
+    }*/
 
     public function MostrarGerenciadorFuncionario(Request $request){
       $dadosfuncionarios = Funcionario::all();
@@ -42,7 +42,7 @@ class funcionarioController extends Controller
 
       $dadosfuncionarios = $dadosfuncionarios->get();
 
-      return view('gerenciadorFuncionario',['dadosfuncionario'=>$dadosfuncionario]);
+      return view('gerenciadorFuncionario',['dadosfuncionario'=>$dadosfuncionarios]);
       
 
     }
