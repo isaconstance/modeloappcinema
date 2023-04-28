@@ -29,8 +29,14 @@
         <th scope="row">{{$dadosfuncionarios->id}}</th>
         <td>{{$dadosfuncionarios->nomefun}}</td>
         <td>{{$dadosfuncionarios->emailfun}}</td>
-        <td>X</td>
-        <td>X</td>
+        <td><a href="{{route('mostrar-funcionario', $dadosfuncionario->id)}}">Alterar</a></td>
+        <td>
+            <form method="post" action="{{route('apagar-funcionario', $dadosfuncionario->id)}}">
+                @method('delete')
+                @csrf 
+                <button type="submit" class="btn btn-danger"> Excluir </button>
+            </form>
+        </td>
         </tr>
     @endforeach
     </tbody>
