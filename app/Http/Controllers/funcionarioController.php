@@ -47,17 +47,17 @@ class funcionarioController extends Controller
 
     }
 
-    public function ApagarFuncionario(Funcionario $registrosFuncionarios){
-      $registrosFuncionario->delete();
+    public function ApagarFuncionario(Funcionario $registroFuncionario){
+      $registroFuncionario->delete();
 
-      return Redirect::route('generenciar-funcionario');
+      return Redirect::route('gerenciar-funcionario');
     }
 
     public function MostrarRegistrosFuncionario(Funcionario $registros){
-      return view('xxx',['regitrosFuncionarios'=>$registrosFuncionarios]);
+      return view('xxxx',['regitrosFuncionarios'=>$registroFuncionario]);
     }
 
-    public function AlterarBancoFuncionario(Funcionario $registrosFuncionarios, Request $request){
+    public function AlterarBancoFuncionario(Funcionario $registroFuncionario, Request $request){
       $dadosfuncionarios = $request->validate([
         'emailfun'=> 'string|required',
         'nomefun'=> 'string|required',
@@ -66,9 +66,9 @@ class funcionarioController extends Controller
         'cpffun'=> 'string|required'
       ]);
 
-      $registrosFuncionario->fill($dadosfuncionarios);
-      $registrosFuncionario->save();
+      $registroFuncionario->fill($dadosfuncionarios);
+      $registroFuncionario->save();
 
-      return Redirect::route('generenciar-funcionario');
+      return Redirect::route('gerenciar-funcionario');
     }
 }
