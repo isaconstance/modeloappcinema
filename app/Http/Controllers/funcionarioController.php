@@ -58,6 +58,7 @@ class funcionarioController extends Controller
     }
 
     public function AlterarBancoFuncionario(Funcionario $registroFuncionario, Request $request){
+      
       $dadosfuncionarios = $request->validate([
         'emailfun'=> 'string|required',
         'nomefun'=> 'string|required',
@@ -65,7 +66,7 @@ class funcionarioController extends Controller
         'whatsappfun'=> 'string|required',
         'cpffun'=> 'string|required'
       ]);
-
+    
       $registroFuncionario->fill($dadosfuncionarios);
       $registroFuncionario->save();
 

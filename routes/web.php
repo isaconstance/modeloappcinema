@@ -31,34 +31,21 @@ Route::get('/gerenciar-filme',[filmeController::class,'MostrarGerenciadorFilme']
 Route::delete('/gerenciar-filme/{registroFilme}', [filmeController::class, 'ApagarFilme'])->name('apagar-filme');
 
 Route::put('/gerenciar-filme/{registroFilme',[filmeController::class, 'AlterarBancoFilme'])->name('alterar-banco-filme');
-
 Route::get('/alterar-filme/{registroFilme}',[filmeController::class, 'MostrarRegistroFilme'])->name('mostrar-filme');
 
 
 
-
-
+//funcionario
 Route::get('/cadastro-funcionario',[funcionarioController::class,'buscaCadastroFuncionario'])->name('buscar-cadastro-funcionario');
 Route::post('/cadastro-funcionario',[funcionarioController::class,'cadastrarFuncionario'])->name('cadastro-funcionario');
+
 Route::get('/gerenciar-funcionario',[funcionarioController::class,'MostrarGerenciadorFuncionario'])->name('gerenciar-funcionario');
-
-Route::get('/cadastro-poltrona',[cadastroPoltrona::class,'buscaCadastroPoltrona']);
-
 Route::delete('/gerenciar-funcionario/{registroFuncionario}', [funcionarioController::class, 'ApagarFuncionario'])->name('apagar-funcionario');
 
 Route::put('/alterar-funcionario/{registroFuncionario}', [funcionarioController::class, 'AlterarBancoFuncionario'])->name('alterar-banco-funcionario');
 Route::get('/gerenciar-funcionario/{registroFuncionario}', [funcionarioController::class, 'MostrarRegistroFuncionario'])->name('mostrar-funcionario');
 
+//plt
+Route::get('/cadastro-poltrona',[cadastroPoltrona::class,'buscaCadastroPoltrona']);
 
-// Funcionario
-// Route::get('/cadastro-funcionario',[funcionarioController::class,'buscarCadastrarFuncionario'])->name('buscar-cadastro-funcionario') ;
-// Route::post('/cadastro-funcionario',[funcionarioController::class, 'cadastrarFuncionario']) ->name('cadastro-funcionario');
-
-// Route::get('/gerenciar-funcionario',[funcionarioController::class,'mostrarGerenciadorFuncionario'])->name('gerenciar-funcionario');
-
-// Route::delete('/gerenciar-funcionario/{registroFuncionario}', [funcionarioController::class, 'ApagarFuncionario'])->name('apagar-funcionario');
-
-// Route::put('/gerenciar-funcionario/{registroFuncionario',[funcionarioController::class, 'AlterarBancoFuncionario'])->name('alterar-banco-funcionario');
-
-// Route::get('/alterar-funcionario/{registroFuncionario}',[funcionarioController::class, 'MostrarRegistroFuncionario'])->name('mostrar-funcionario');
 

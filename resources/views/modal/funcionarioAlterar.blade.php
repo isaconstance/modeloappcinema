@@ -9,8 +9,10 @@
       </div>
         <div class="modal-body text-dark">
             
-        <form method = "post" action="{{route('cadastro-funcionario')}}">
+        <form method = "post" action="{{route('alterar-banco-funcionario',$dadosfuncionarios->id)}}">
+        @method('put')
         @csrf
+        
         <div class="mb-3 form-check">
             <label for="nomeInput" class="form-label">Nome:</label>
             <input type="text" name="nomefun" value="{{$dadosfuncionarios->nomefun}}" class="form-control" id="nomeInput" >
@@ -18,22 +20,22 @@
 
         <div class="mb-3 form-check">
             <label for="emailInput" class="form-label">Email:</label>
-            <input type="email" name="emailfun" class="form-control" id="emailInput">
+            <input type="email" name="emailfun" value="{{$dadosfuncionarios->emailfun}}" class="form-control" id="emailInput">
         </div>
 
         <div class="mb-3 form-check">
             <label for="whastappInput" class="form-label">WhatsApp:</label>
-            <input type="text" name="whatsappfun" class="form-control" id="whatsappInput" >
+            <input type="text" name="whatsappfun" value="{{$dadosfuncionarios->whatsappfun}}" class="form-control" id="whatsappInput" >
         </div>
 
         <div class="mb-3 form-check">
             <label for="cpfInput" class="form-label">CPF:</label>
-            <input type="text" name="cpffun" class="form-control" id="cpfInput">
+            <input type="text" name="cpffun" value="{{$dadosfuncionarios->cpffun}}" class="form-control" id="cpfInput">
         </div>
         
         <div class="mb-3 form-check">
             <label for="senhaInput" class="form-label">Senha:</label>
-            <input type="password" name="senhafun" class="form-control" id="senhaInput" >
+            <input type="password" name="senhafun" value="{{$dadosfuncionarios->senhafun}}"class="form-control" id="senhaInput" >
         </div>
         
         <button type="submit" class="btn btn-primary">Salvar</button>

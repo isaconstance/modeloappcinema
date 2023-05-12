@@ -29,14 +29,14 @@
     </thead>
     <tbody>
       
-    @foreach($dadosFilme as $dadosFilmes)
+    @foreach($dadosfilme as $dadosfilmes)
         <tr>
-        <td scope="row">{{$dadosFilmes->id}}</td>
-        <td>{{$dadosFilmes->nomefil}}</td>
-        <td>{{$dadosFilmes->atoresfil}}</td>      
-        <td><a href="{{route('mostrar-filme', $dadosFilmes->id)}}">Alterar</a></td>
+        <td scope="row">{{$dadosfilmes->id}}</td>
+        <td>{{$dadosfilmes->nomefil}}</td>
+        <td>{{$dadosfilmes->atoresfil}}</td>      
+    
         <td>
-            <form method="post" action="{{route('apagar-filme', $dadosFilmes->id)}}">
+            <form method="post" action="{{route('apagar-filme', $dadosfilmes->id)}}">
             @method('delete')
             @csrf
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"> Excluir </button>
