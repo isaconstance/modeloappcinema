@@ -31,7 +31,6 @@ class filmeController extends Controller
 
         Filme::create($dadosfilmes);
         return Redirect::route('home');
-
     }
     
     public function MostrarGerenciadorFilme(Request $request){
@@ -49,7 +48,7 @@ class filmeController extends Controller
         
       }
 
-      public function ApagarFilme(Filme $registroFilme){
+     /* public function ApagarFilme(Filme $registroFilme){
         $registroFilme->delete();
 
         return Redirect::route('gerenciar-filme');
@@ -72,5 +71,5 @@ class filmeController extends Controller
         $registroFilme->save();
 
         return Redirect::route('gerenciar-filme');
-    }
+    }*/
 }

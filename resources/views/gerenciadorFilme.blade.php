@@ -33,37 +33,34 @@
         <tr>
         <td scope="row">{{$dadosfilmes->id}}</td>
         <td>{{$dadosfilmes->nomefil}}</td>
-        <td>{{$dadosfilmes->atoresfil}}</td>      
+        <td>{{$dadosfilmes->atoresfil}}</td> 
+        </td>      
     
-        <td>
-            <form method="post" action="{{route('apagar-filme', $dadosfilmes->id)}}">
-            @method('delete')
-            @csrf
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"> Excluir </button>
-            <form>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                  <div class="modal-content bg-dark">
-                  <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">Atenção</h1>
-                      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                      Tem certeza que deseja excluir?
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-primary">Salvar</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </tr>
-    </tbody>
-    @endforeach
+
+      <!-- Button trigger modal -->
+<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalAlterarFil-{{$dadosfilmes->id}}">
+          Alterar
+        </button>
+
+@include('modal.filmesAlterar')
+
+    
+    </td>
+      <td>
+
+      <!-- Button trigger modal -->
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteFil-{{$dadosfilmes->id}}">
+          Excluir
+        </button>
+
+@include('modal.filmesDeletar')
+
+      </td>  
+
+    </tr>
+   @endforeach
+  </tbody>
+</table>
+
 </div>
-
-
-
-
 @endsection

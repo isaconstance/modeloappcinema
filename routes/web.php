@@ -24,8 +24,8 @@ Route::get('/', function () {
 
 // Filme
 
-Route::get('/cadastro-filme', [filmeController::class, 'buscaCadastroFilme']) ->name('buscar-cadastro-filme');
-Route::post('/cadastro-filme', [filmeController::class, 'cadastrarFilme']) ->name('cadastro-filme');
+Route::get('/cadastro-filme', [filmeController::class, 'buscaCadastroFilme'])->name('buscar-cadastro-filme');
+Route::post('/cadastro-filme', [filmeController::class, 'cadastrarFilme'])->name('cadastro-filme');
 
 Route::get('/gerenciar-filme',[filmeController::class,'MostrarGerenciadorFilme'])->name('gerenciar-filme');
 Route::delete('/gerenciar-filme/{registroFilme}', [filmeController::class, 'ApagarFilme'])->name('apagar-filme');

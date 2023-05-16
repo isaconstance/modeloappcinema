@@ -1,6 +1,7 @@
 @extends('padrao')
 
 @section('content')
+
 <form method = "post" action="{{route('cadastro-filme')}}">
     @csrf
     <div class="mb-3 form-check">
