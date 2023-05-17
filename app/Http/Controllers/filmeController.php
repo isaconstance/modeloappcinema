@@ -63,7 +63,7 @@ class filmeController extends Controller
             'atoresfil' => 'string|required',
             'datalancamentofil' => 'string|required',
             'sinopsefil' => 'string|required',
-            'capafil' => 'file|required'
+            'capafil' => 'file'
         ]);
 
         $registroFilme->fill($dadosFilme);

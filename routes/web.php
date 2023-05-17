@@ -30,7 +30,7 @@ Route::post('/cadastro-filme', [filmeController::class, 'cadastrarFilme'])->name
 Route::get('/gerenciar-filme',[filmeController::class,'MostrarGerenciadorFilme'])->name('gerenciar-filme');
 Route::delete('/gerenciar-filme/{registroFilme}', [filmeController::class, 'ApagarFilme'])->name('apagar-filme');
 
-Route::put('/alterar-filme/{registroFilme',[filmeController::class, 'AlterarBancoFilme'])->name('alterar-banco-filme');
+Route::put('/alterar-filme/{registroFilme}',[filmeController::class, 'AlterarBancoFilme'])->name('alterar-banco-filme');
 Route::get('/gerenciar-filme/{registroFilme}',[filmeController::class, 'MostrarRegistroFilme'])->name('mostrar-filme');
 
 

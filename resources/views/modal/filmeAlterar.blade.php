@@ -30,7 +30,7 @@
 
      <div class="mb-3 form-check">
         <label for="sinopseInput" class="form-label">Sinopse:</label>
-        <textarea class="form-control" name="sinopsefil" value="{{$dadosFilme->sinopsefil}}" id="sinopseInput" rows="3"></textarea>
+        <textarea class="form-control" name="sinopsefil" id="sinopseInput" rows="3">{{$dadosFilme->sinopsefil}}</textarea>
     </div>
 
     <div class="mb-3 form-check">
