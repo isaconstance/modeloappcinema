@@ -1,10 +1,9 @@
 @extends('padrao')
-
 @section('content')
 
-<div class="container">
+<div class="container mt-5">
   <form method="get" action="{{route('gerenciar-filme')}}">
-    <div class="mt-3 row">
+    <div class="mb-3 row">
         <label for="inputPesquisar" class="col-sm-2 col-form-label">Pesquisar:</label>
         
         <div class="col-sm-8">
@@ -15,8 +14,8 @@
             </div>
     </div>
   </form>
-</div>
-<div class="container my-3">
+
+
     <table class="table table-dark table-hover">
     <thead>
         <tr>
@@ -29,31 +28,31 @@
     </thead>
     <tbody>
       
-    @foreach($dadosfilme as $dadosfilmes)
+    @foreach($dadosFilme as $dadosFilme)
         <tr>
-        <td scope="row">{{$dadosfilmes->id}}</td>
-        <td>{{$dadosfilmes->nomefil}}</td>
-        <td>{{$dadosfilmes->atoresfil}}</td> 
-        </td>      
+        <td scope="row">{{$dadosFilme->id}}</td>
+        <td>{{$dadosFilme->nomefil}}</td>
+        <td>{{$dadosFilme->atoresfil}}</td> 
+        <td>      
     
 
       <!-- Button trigger modal -->
-<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalAlterarFil-{{$dadosfilmes->id}}">
+<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalAlterarFil-{{$dadosFilme->id}}">
           Alterar
         </button>
 
-@include('modal.filmesAlterar')
+@include('modal.filmeAlterar')
 
     
     </td>
       <td>
 
       <!-- Button trigger modal -->
-        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteFil-{{$dadosfilmes->id}}">
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeleteFil-{{$dadosFilme->id}}">
           Excluir
         </button>
 
-@include('modal.filmesDeletar')
+@include('modal.filmeDeletar')
 
       </td>  
 

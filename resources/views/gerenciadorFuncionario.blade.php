@@ -24,6 +24,7 @@
     </tr>
   </thead>
   <tbody>
+    
     @foreach($dadosfuncionario as $dadosfuncionarios)
     <tr>
       <th scope="row">{{$dadosfuncionarios->id}}</th>

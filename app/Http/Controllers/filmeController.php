@@ -1,9 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Support\Facades\Redirect;
-
 use Illuminate\Http\Request;
 use App\Models\Filme;
 
@@ -16,50 +14,51 @@ class filmeController extends Controller
     }
 
     public function cadastrarFilme(Request $request){
-        $dadosfilmes= $request->validate([
+        $dadosFilme= $request->validate([
             'nomefil' => 'string|required',
             'atoresfil' => 'string|required',
             'datalancamentofil' => 'string|required',
             'sinopsefil' => 'string|required',
             'capafil' => 'file|required'
         ]);
-        //dd($dadosfilmes);
+        //dd($dadosFilme);
 
-        $file = $dadosfilmes['capafil'];
+        $file = $dadosFilme['capafil'];
         $path = $file->store('capa', 'public');
-        $dadosfilmes['capafil'] = $path;
+        $dadosFilme['capafil'] = $path;
 
-        Filme::create($dadosfilmes);
+        Filme::create($dadosFilme);
         return Redirect::route('home');
     }
     
     public function MostrarGerenciadorFilme(Request $request){
-        $dadosfilmes = Filme::all();
-        //dd($dadosFilmes);
+        $dadosFilme = Filme::all();
+        //dd($dadosFilme);
         
-        $dadosfilmes = Filme::query();
-        $dadosfilmes->when($request->nomefil,function($query, $nomefilme){
-          $query->where('nomefil', 'like', '%'.$nomefilme.'%');
+        $dadosFilme = Filme::query();
+        $dadosFilme->when($request->nomefil,function($query, $nomeFilme){
+          $query->where('nomefil', 'like', '%'.$nomeFilme.'%');
         });
   
-        $dadosfilmes = $dadosfilmes->get();
+        $dadosFilme = $dadosFilme->get();
   
-        return view('gerenciadorFilme',['dadosfilme'=>$dadosfilmes]);
+        return view('gerenciadorFilme',['dadosFilme'=>$dadosFilme]);
         
       }
 
-     /* public function ApagarFilme(Filme $registroFilme){
+      public function ApagarFilme(Filme $registroFilme){
         $registroFilme->delete();
 
         return Redirect::route('gerenciar-filme');
     }
 
-    public function MostrarRegistrosFilme(Filme $registros){
-        return view('xxxx',['registrosFilmes'=>$registroFilme]);
+    public function MostrarRegistroFilme(Filme $registros){
+        return view('xxxx',['registrosFilme'=>$registroFilme]);
     }
 
     public function AlterarBancoFilme(Filme $registroFilme, Request $request){
-        $dadosfilmes = $request->validate([
+
+        $dadosFilme = $request->validate([
             'nomefil' => 'string|required',
             'atoresfil' => 'string|required',
             'datalancamentofil' => 'string|required',
@@ -67,9 +66,9 @@ class filmeController extends Controller
             'capafil' => 'file|required'
         ]);
 
-        $registroFilme->fill($dadosfilmes);
+        $registroFilme->fill($dadosFilme);
         $registroFilme->save();
 
         return Redirect::route('gerenciar-filme');
-    }*/
+    }
 }
