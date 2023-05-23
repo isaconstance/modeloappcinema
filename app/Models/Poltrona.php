@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class cadastroPoltrona extends Model
 {
     use HasFactory;
+
+    protected $fillable =[
+        'nomepoltrona', 'qtdpoltrona', 'salapoltrona', 'sessaopoltrona'
+    ];
 }
