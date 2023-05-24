@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('poltronas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('nomepoltrona');
+            $table->string('filmepoltrona');
             $table->string('qtdpoltrona');
-            $table->string('salapoltrona');
+            $table->string('tipopoltrona');
             $table->string('sessaopoltrona');
         });
     }

@@ -5,27 +5,62 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use App\Models\Poltrona;
 
-class cadastroPoltrona extends Controller
+class poltronaController extends Controller
 {
     public function buscaCadastroPoltrona(){
         return View('cadastroPoltrona');
     }
 
     public function cadastrarPoltrona(Request $request){
-        $dadosFilme= $request->validate([
-            'nomepoltrona' => 'string|required',
-            'atoresfil' => 'string|required',
-            'datalancamentofil' => 'string|required',
-            'sinopsefil' => 'string|required',
-            'capafil' => 'file|required'
+        $dadosPoltrona = $request->validate([
+            'filmepoltrona' => 'string|required',
+            'qtdpoltrona' => 'string|required',
+            'tipopoltrona' => 'string|required',
+            'sessaopoltrona' => 'string|required'
         ]);
-        //dd($dadosFilme);
+        
+        Poltrona::create($dadosPoltrona);
+        return Redirect::route('cadastro-poltrona');
+    }
 
-        $file = $dadosFilme['capafil'];
-        $path = $file->store('capa', 'public');
-        $dadosFilme['capafil'] = $path;
 
-        Filme::create($dadosFilme);
-        return Redirect::route('home');
+public function MostrarGerenciadorPoltrona(Request $request) {
+
+        
+    $dadosPoltronas = collect();
+
+    
+ if ($request->filled('filmepoltrona')) {
+    
+     $dadosPoltronas = Poltrona::query()
+         ->where('filmepoltrona', 'like', '%' . $request->filmepoltrona . '%')
+         ->get();
+ }
+
+     return view('gerenciadorPoltrona', ['dadosPoltrona'=> $dadosPoltronas]);
+    
+ }
+
+  public function ApagarPoltrona(Poltrona $registroPoltrona){
+    $registroPoltrona->delete();
+
+    return Redirect::route('gerenciar-poltrona');
+  }
+
+public function MostrarRegistroPoltrona(Poltrona $registroPoltrona){
+    return view('xxxx',['registroPoltrona' => $registroPoltrona]);
+
+}
+public function AlterarBancoPoltrona(Poltrona $registroPoltrona, Request $request){
+    $dadosPoltrona = $request->validate([
+        'filmepoltrona' => 'string|required',
+        'qtdpoltrona' => 'string|required',
+        'tipopoltrona' => 'string|required',
+        'sessaopoltrona' => 'string|required'
+    ]);
+    $registroPoltrona->fill($dadosPoltrona);
+    $registroPoltrona->save();
+
+    return Redirect::route('gerenciar-poltrona');
     }
 }
