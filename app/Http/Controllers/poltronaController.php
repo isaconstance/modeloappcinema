@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Redirect;
+
 use Illuminate\Http\Request;
 use App\Models\Poltrona;
 
@@ -20,7 +22,7 @@ class poltronaController extends Controller
         ]);
         
         Poltrona::create($dadosPoltrona);
-        return Redirect::route('cadastro-poltrona');
+        return Redirect::route('home');
     }
 
 

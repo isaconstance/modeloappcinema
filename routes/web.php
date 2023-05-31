@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\filmeController;
 use App\Http\Controllers\funcionarioController;
+use App\Http\Controllers\poltronaController;
 use App\Http\Controllers\cadastroPoltrona;
 
 

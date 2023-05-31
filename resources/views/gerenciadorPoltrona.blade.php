@@ -43,14 +43,14 @@
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalAlterarPoltrona-{{$dadosPoltronas->id}}">
                     Alterar
             </button>
-    @include('modal.modalPoltronaAlterar')
+    @include('modal.poltronaAlterar')
         </td>
         <td>
         <!-- Button trigger modal -->
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalDeletePoltrona-{{$dadosPoltronas->id}}">
             Excluir
             </button>
-    @include('modal.modalPoltronaDeletar')
+    @include('modal.poltronaDeletar')
         </td>  
         </tr>
     @endforeach
